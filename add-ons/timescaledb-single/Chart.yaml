@@ -13,5 +13,5 @@ appVersion: "1.0"
 
 dependencies:
 - name: timescaledb-single
-  version: 0.32.0
-  repository: https://charts.timescale.com/
+  version: 0.30.0
+  repository: https://charts.fairwinds.com/incubator
