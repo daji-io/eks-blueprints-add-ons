@@ -246,7 +246,7 @@ patroni:
           ssl_key_file: '/etc/certificate/tls.key'
           tcp_keepalives_idle: 900
           tcp_keepalives_interval: 100
-          temp_file_limit: 1GB
+          temp_file_limit: 5GB
           timescaledb.passfile: '../.pgpass'
           unix_socket_directories: "/var/run/postgresql"
           unix_socket_permissions: '0750'
@@ -369,7 +369,7 @@ persistentVolumes:
   # https://www.postgresql.org/docs/current/creating-cluster.html#CREATING-CLUSTER-MOUNT-POINTS
   data:
     enabled: true
-    size: 5Gi
+    size: 25Gi
     ## database data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -387,7 +387,7 @@ persistentVolumes:
   # volume for the WAL files should just work for new pods.
   wal:
     enabled: true
-    size: 1Gi
+    size: 10Gi
     subPath: ""
     storageClass:
     # When changing this mountPath ensure you also change the following key to reflect this:
