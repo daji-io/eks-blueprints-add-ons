@@ -5,6 +5,10 @@ region: ''
 account: ''
 clusterName: ''
 
+# Kafka UI Values
+kafka-ui:
+  enable: false
+
 # Timescale Values
 timescaledb-single:
   enable: false

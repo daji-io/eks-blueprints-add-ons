@@ -1,0 +1,33 @@
+{{- if and (.Values.kafkaUi) (.Values.kafkaUi.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafka-ui
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/kafka-ui
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      values: |
+        kafka-ui:
+        {{- toYaml .Values.kafkaUi | nindent 10 }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: strimzi
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace={{ .Values.agones.createNamespace }}
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}
