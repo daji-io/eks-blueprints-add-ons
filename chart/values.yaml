@@ -10,12 +10,14 @@ timescaledb-single:
   enable: false
 
 # Agones Values
-agones:
-  enable: false
+agones: 
+  enable: false 
+  createNamespace: true
 
 # App Mesh Values
-appMesh:
-  enable: false
+appMesh: 
+  enable: false 
+  createNamespace: true
 
 # Calico Values
 calico:
@@ -24,6 +26,7 @@ calico:
 # AWS CloudWatch Metrics Values
 awsCloudWatchMetrics:
   enable: false
+  createNamespace: true
   serviceAccountName:
 
 # AWS EFS CSI Driver Values
@@ -34,12 +37,14 @@ awsEfsCsiDriver:
 # AWS for Fluent Bit Values
 awsForFluentBit:
   enable: false
+  createNamespace: true
   logGroupName:
   serviceAccountName:
 
 # AWS Load Balancer Controller Values
 awsLoadBalancerController:
   enable: false
+  createNamespace: true
   serviceAccountName:
   podDisruptionBudget:
     maxUnavailable: 1
@@ -52,12 +57,14 @@ awsNodeTerminationHandler:
 # AWS Otel Collector Values
 awsOtelCollector:
   enable: false
+  createNamespace: true
   otlpEndpoint:
   resourceAttributes:
 
 # Cert Manager Values
 certManager:
   enable: false
+  createNamespace: true
   serviceAccountName:
 
 # Cert Manager CSI Driver Values
@@ -80,6 +87,7 @@ strimziKafkaOperator:
 # External DNS Values
 externalDns:
   enable: false
+  createNamespace: true
   serviceAccountName:
   zoneIdFilter:
 
@@ -90,11 +98,13 @@ externalSecrets:
 # Gatekeeper Values
 gatekeeper:
   enable: false
+  createNamespace: true
   clusterName:
 
 # Nginx Values
 ingressNginx:
   enable: false
+  createNamespace: true
 
 # Grafana default Values
 grafana:
@@ -109,13 +119,16 @@ vault:
 # Karpenter Values
 karpenter:
   enable: false
+  createNamespace: true
   serviceAccountName:
   controllerClusterEndpoint:
   awsDefaultInstanceProfile:
+  interruptionQueueName:
 
 # Keda Values
 keda:
   enable: false
+  createNamespace: true
   serviceAccountName:
 
 # Metrics Server Values
@@ -125,6 +138,7 @@ metricsServer:
 # Ondat Values
 ondat:
   enable: false
+  createNamespace: true
   etcdClusterCreate: false
   serviceAccountName:
   clusterSecretRefName:
@@ -144,6 +158,7 @@ ondat:
 # Prometheus Values
 prometheus:
   enable: false
+  createNamespace: true
   serviceAccountName:
   roleArn:
   ampWorkspaceUrl:
@@ -151,10 +166,12 @@ prometheus:
 # Metrics Server Values
 sparkOperator:
   enable: false
+  createNamespace: true
 
 # Tetrate Istio Values
 tetrateIstio:
   enable: false
+  createNamespace: true
   base:
   cni:
   istiod:
@@ -167,18 +184,22 @@ thanos:
 # Traefik Values
 traefik:
   enable: false
+  createNamespace: true
 
 # VPA Values
 vpa:
   enable: false
+  createNamespace: true
 
 # Yunikorn Values
 yunikorn:
   enable: false
+  createNamespace: true
 
 # Argo Rollout Values
 argoRollouts:
   enable: false
+  createNamespace: true
 
 # Argo Rollout Values
 argoWorkflows:
@@ -187,8 +208,14 @@ argoWorkflows:
 # Kube State Metrics Values
 kubeStateMetrics:
   enable: false
+  createNamespace: true
   serviceAccountName:
 
+# Prometheus Node Exporter
+promtheusNodeExporter:
+  enable: false
+  serviceAccountName:
+  
 # Kubernetes Dashboard Values
 kubernetesDashboard:
   enable: false
@@ -236,5 +263,13 @@ reporter:
 nvidiaDevicePlugin:
   enable: false
 
+# Consul Values
+consul:
+  enable: false
+  
 velero:
   enable: false
+
+opentelemetryCollector:
+  enable: false
+  serviceAccountName:
